@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Desktop (PC) CSS -->
+    <link rel="stylesheet" href="index.css" media="screen and (min-width: 768px)">
+
+    <!-- Mobile CSS -->
+    <link rel="stylesheet" href="/index-mobile-version.css" media="screen and (max-width: 767px)">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
+    <title>Silver-Calculator-APURBO_KARMOKAR</title>
+    <link rel="icon" href="Images/Gold.png">
+</head>
+<body>
+    <div class="form">
+        
+        <img id="gold_logo" src="/Images/gold_logo.png" alt="Loading...">
+        <h1>Silver Calculator</h1><hr><br>
+
+        <div class="view">
+            <div class="sideview">
+                <p>Today's Silver Price : 
+                <input id="priceInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal"></p>
+        
+                <p id="textSize">New Item weight (Bhori . Ana . Roti . Point)
+                <input id="weightInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal"></p>
+
+                <p id="textSize">Old Item weight (Bhori . Ana . Roti . Point) :
+                    <input id="weightInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal"></p>
+
+                <p id="textSize">Old item loss /Per Bhori (Bhori . Ana . Roti . Point) :</p>
+                <input id="laborCostInput" placeholder="" type="tel" pattern="[0-9.]*" inputmode="decimal">
+                
+                <!-- Placeholder for mobile-only message -->
+                <div id="mobileCalculateMessage"></div>
+                <script>
+                    function isMobileDevice() {
+                        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                    }
+
+                    if (isMobileDevice()) {
+                        const msg = document.createElement("p");
+                        msg.textContent = 'Press "Calculate" ⬇ below';
+                        msg.style.fontWeight = "bold";
+                        msg.style.color = "#444";
+                        msg.style.marginTop = "8px"
+                        msg.style.marginBottom = "-5px";
+
+                        document.getElementById("mobileCalculateMessage").appendChild(msg);
+                    }
+                </script>
+
+            </div>
+
+            <div class="verticalLine"></div>
+
+            <div class="sideview">
+                <p>Remain Old Silver : <input type="text" id="display" placeholder="" disabled></p>
+                <p>Need to purchase Silver :<input type="text" id="totalWeightInGram" placeholder="" disabled></p>
+                <p id="textSize">The Total Price :</p><input type="text" id="costPerGram" placeholder="" disabled>
+            </div>
+        </div>
+
+        <button onclick="calculateSilverValue()">Calculate</button><br>
+
+        
+        <div id="silvercalculator">
+            <button onclick="window.location.href='/index.html'">
+              Wanna try Gold Calculator?
+            </button>
+        </div>
+        <script>
+            function isMobileDevice() {
+                return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            }
+
+            if (isMobileDevice()) {
+                document.getElementById("silvercalculator").style.marginTop = "-20px";
+            }
+        </script>
+        
+        <br><br>
+        <p>Who am I? <a target="_blank" href="https://info-apurbo.netlify.app/">Want's to know?</a></p>
+
+        <script src="silver.js"></script>
+
+    </div>
+</body>
+</html>

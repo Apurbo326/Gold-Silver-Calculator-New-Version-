@@ -1,0 +1,206 @@
+/* Global styles */
+body {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, blue, #e3e81d, #1de840, #1ddde8, red, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    -webkit-animation: rainbow 18s ease infinite;
+    -moz-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-moz-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-o-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+/* Header */
+h1 {
+    color: rgba(65, 59, 244, 0.265);
+    text-align: center;
+    font-family: "Protest Riot", sans-serif;
+    -webkit-text-stroke: .7px #ebebeb;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
+    font-size: 2rem; /* Adjust font size for responsiveness */
+}
+
+/* General text */
+p {
+    color: black;
+}
+
+/* Form styling */
+.form {
+    background-color: rgb(233, 241, 241);
+    outline: 2px;
+    outline-color: rgba(0, 0, 0, 0.541);
+    outline-style: solid;
+    margin: 2.5% auto; /* Centering and spacing adjustments */
+    padding: 2%;
+    box-shadow: 7px 7px rgba(0, 0, 0, 0.58);
+    border-radius: 10px;
+    font-family: "Long Cang", cursive;
+    font-weight: 400;
+    font-size: 1.2rem; /* Adjust font size for responsiveness */
+    text-align: center;
+    max-width: 80%; /* Limit width for larger screens */
+}
+
+/* Flex container for side views */
+.view {
+    display: flex;
+    justify-content: space-around; /* Spacing adjustments */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* Side view styling */
+.sideview {
+    margin: 1%; /* Adjust margin */
+    padding: 2%;
+    text-align: center;
+    width: 45%; /* Adjust width for responsiveness */
+}
+
+/* Vertical line separator */
+.verticalLine {
+    display: none; /* Hide vertical line on small screens */
+}
+
+/* Responsive adjustments using media queries */
+@media screen and (max-width: 768px) {
+    .form {
+        padding: 4%;
+    }
+
+    .sideview {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .verticalLine {
+        display: block; /* Show vertical line on larger screens */
+    }
+}
+
+/* Input fields */
+input {
+    padding: 3%;
+    border-radius: 5px;
+    background-color: rgba(254, 254, 254, 0.708);
+    border: 1px solid #ccc; /* Add border for better visibility */
+    text-align: center;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Adjust margin */
+}
+
+/* Calculate button */
+button {
+    font-family: "Protest Riot", sans-serif;
+    font-size: large;
+    -webkit-text-stroke: .7px #000000;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
+    display: block; /* Adjust button display */
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+    height: 58px;
+    width: 100%; /* Full width */
+    margin: 1rem auto; /* Center button */
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg, rgba(65, 59, 244, 0.265), #3c4fe0);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    transition: all .2s ease-out;
+}
+
+button:hover {
+    box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+
+/* Customer name and phone */
+#customerName,
+#customerPhone {
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Adjust margin */
+}
+
+/* Responsive adjustments for smaller text */
+#textSize {
+    font-size: 1rem; /* Adjust font size for responsiveness */
+}
+#textSize4 {
+    font-size: 1rem; /* Adjust font size for responsiveness */
+}
+
+#textSize2 {
+    font-size: 0.9rem; /* Adjust font size for responsiveness */
+    margin-right: -100px;
+    text-align: left;
+}
+
+/* Gold logo */
+#gold_logo {
+    width: 100%; /* Full width */
+    max-width: 300px; /* Limit max width */
+    margin: 0 auto; /* Center image */
+}
+

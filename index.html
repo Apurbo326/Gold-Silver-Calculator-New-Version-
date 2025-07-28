@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Desktop (PC) CSS -->
+    <link rel="stylesheet" href="index.css" media="screen and (min-width: 768px)">
+
+    <!-- Mobile CSS -->
+    <link rel="stylesheet" href="/index-mobile-version.css" media="screen and (max-width: 767px)">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
+    <title>Gold-Calculator-APURBO_KARMOKAR</title>
+    <link rel="icon" href="Images/Gold.png">
+</head>
+<body>
+    <div class="form">
+        
+        <img id="gold_logo" src="/Images/gold_logo.png" alt="Loading...">
+        <h1>Gold Calculator</h1><hr><br>
+
+        <div class="view">
+            <div class="sideview">
+                <p>Today's Gold Price : 
+                <input id="priceInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal"></p>
+        
+                <p id="textSize">Bhori . Ana . Roti . Point :
+                <input id="weightInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal"></p>
+
+                <p id="textSize3">Making Charge (Per Bhori) :</p>
+                <input id="laborCostInput" placeholder="" required type="tel" pattern="[0-9.]*" inputmode="decimal">
+
+                <!-- Message placeholder (empty by default, hidden on PC) -->
+                <div id="mobileMessage" style="display: none;"></div>
+
+                <script>
+                function isMobileDevice() {
+                    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                }
+
+                if (isMobileDevice()) {
+                    // Hide making charge input for mobile
+                    document.getElementById("textSize3").style.display = "none";
+                    document.getElementById("laborCostInput").style.display = "none";
+
+                    // Show the message only on mobile
+                    const message = document.createElement("p");
+                    message.textContent = 'Press "Calculate" ⬇ below';
+                    message.style.fontWeight = "bold";
+                    document.getElementById("mobileMessage").style.display = "block";
+                    document.getElementById("mobileMessage").appendChild(message);
+                }
+                </script>
+
+            </div>
+
+            <div class="verticalLine"></div>
+
+            <div class="sideview">
+                <p>The Total Price is : <input type="text" id="display" placeholder="" disabled></p>
+                <p>Total Weight in Gram : <input type="text" id="totalWeightInGram" placeholder="" disabled></p>
+
+                <p id="textSize4">Cost Per Gram (Without Making Charge) : </p><input type="text" id="costPerGram" placeholder="" disabled>
+                <script>
+                    function isMobileDevice() {
+                        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                    }
+
+                    if (isMobileDevice()) {
+                        document.getElementById("textSize4").textContent = "Cost Per Gram :";
+                    }
+                </script>
+            </div>
+        </div>
+
+        <button onclick="calculateGoldValue()">Calculate</button><br><br><br><br>
+
+        <div id="customerFields">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName"><br><br>
+
+            <label for="customerPhone">Customer Phone:</label>
+            <input type="text" id="customerPhone" required><br><br><br>
+
+            <button onclick="generateBill()">Generate Bill</button><br>
+        </div>
+
+            <script>
+                function isMobileDevice() {
+                    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                }
+
+                if (isMobileDevice()) {
+                    document.getElementById("customerFields").style.display = "none";
+                }
+            </script>
+
+        
+
+        <div id="silvercalculator">
+            <button onclick="window.location.href='/silvercalculator.html'">
+              Wanna try Silver Calculator?
+            </button>
+        </div>
+        <script>
+            function isMobileDevice() {
+                return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            }
+
+            if (isMobileDevice()) {
+                document.getElementById("silvercalculator").style.marginTop = "-80px";
+            }
+        </script>
+        
+        <br><br>
+        <p>Who am I? <a target="_blank" href="https://info-apurbo.netlify.app/">Want's to know?</a></p>
+
+        <script src="index.js"></script>
+
+    </div>
+</body>
+</html>
