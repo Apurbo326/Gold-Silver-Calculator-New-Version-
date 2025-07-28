@@ -42,23 +42,21 @@
 
                 <p id="textSize">Old item loss /Per Bhori (Bhori . Ana . Roti . Point) :</p>
                 <input id="laborCostInput" placeholder="" type="tel" pattern="[0-9.]*" inputmode="decimal">
-                
-                <!-- Placeholder for mobile-only message -->
+
+                <!-- Placeholder for mobile-only button -->
                 <div id="mobileCalculateMessage"></div>
+
                 <script>
                     function isMobileDevice() {
                         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
                     }
 
                     if (isMobileDevice()) {
-                        const msg = document.createElement("p");
-                        msg.textContent = 'Press "Calculate" ⬇ below';
-                        msg.style.fontWeight = "bold";
-                        msg.style.color = "#444";
-                        msg.style.marginTop = "8px"
-                        msg.style.marginBottom = "-5px";
+                        const btn = document.createElement("button");
+                        btn.textContent = "Calculate";
+                        btn.setAttribute("onclick", "calculateSilverValue()");
 
-                        document.getElementById("mobileCalculateMessage").appendChild(msg);
+                        document.getElementById("mobileCalculateMessage").appendChild(btn);
                     }
                 </script>
 
@@ -73,7 +71,20 @@
             </div>
         </div>
 
-        <button onclick="calculateSilverValue()">Calculate</button><br>
+        <button id="desktopCalculateBtn" onclick="calculateSilverValue()">Calculate</button><br>
+        <script>
+            function isMobileDevice() {
+                return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            }
+
+            if (isMobileDevice()) {
+                const desktopBtn = document.getElementById("desktopCalculateBtn");
+                if (desktopBtn) {
+                    desktopBtn.style.display = "none";
+                }
+            }
+        </script>
+
 
         
         <div id="silvercalculator">
