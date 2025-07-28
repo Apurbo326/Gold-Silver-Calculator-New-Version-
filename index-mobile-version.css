@@ -1,73 +1,47 @@
 /* Global styles */
 body {
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    position: absolute;
-    background: linear-gradient(124deg, #ff2400, #e81d1d, blue, #e3e81d, #1de840, #1ddde8, red, #dd00f3, #dd00f3);
-    background-size: 1800% 1800%;
-    -webkit-animation: rainbow 18s ease infinite;
-    -moz-animation: rainbow 18s ease infinite;
-    -o-animation: rainbow 18s ease infinite;
-    animation: rainbow 18s ease infinite;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(124deg,
+        #ff0000, #ff1a00, #ff3300, #ff4d00, #ff6600, #ff8000, #ff9900,
+        #ffb300, #ffcc00, #ffe600, #ffff00, #e6ff00, #ccff00, #b3ff00,
+        #99ff00, #80ff00, #66ff00, #4dff00, #33ff00, #1aff00, #00ff00,
+        #00ff1a, #00ff33, #00ff4d, #00ff66, #00ff80, #00ff99, #00ffb3,
+        #00ffcc, #00ffe6, #00ffff, #00e6ff, #00ccff, #00b3ff, #0099ff,
+        #0080ff, #0066ff, #004dff, #0033ff, #001aff, #0000ff, #1a00ff,
+        #3300ff, #4d00ff, #6600ff, #8000ff, #9900ff, #b300ff, #cc00ff,
+        #e600ff, #ff00ff, #ff00e6, #ff00cc, #ff00b3, #ff0099, #ff0080,
+        #ff0066, #ff004d, #ff0033, #ff001a, #ff0000
+    );
+    background-size: 1000% 1000%;
+    animation: rainbow 30s ease infinite;
+}
+
+/* Mobile optimization */
+@media only screen and (max-width: 767px) {
+    body {
+        background-size: 1200% 1200%;
+        animation: rainbow 10s ease infinite;
+    }
 }
 
 @keyframes rainbow {
     0% {
-        background-position: 0% 82%
+        background-position: 0% 50%;
     }
-
     50% {
-        background-position: 100% 19%
+        background-position: 100% 50%;
     }
-
     100% {
-        background-position: 0% 82%
+        background-position: 0% 50%;
     }
 }
 
-@-webkit-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-
-    50% {
-        background-position: 100% 19%
-    }
-
-    100% {
-        background-position: 0% 82%
-    }
-}
-
-@-moz-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-
-    50% {
-        background-position: 100% 19%
-    }
-
-    100% {
-        background-position: 0% 82%
-    }
-}
-
-@-o-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-
-    50% {
-        background-position: 100% 19%
-    }
-
-    100% {
-        background-position: 0% 82%
-    }
-}
 
 /* Header */
 h1 {
@@ -204,3 +178,8 @@ button:hover {
     margin: 0 auto; /* Center image */
 }
 
+body {
+    padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative; /* not absolute */
+}
