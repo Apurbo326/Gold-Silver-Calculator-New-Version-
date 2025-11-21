@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold-Calculator-APURBO_KARMOKAR</title>
+<link rel="icon" href="Images/Gold.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&display=swap">
+<style>
+body {
+   position: relative;
+   background: linear-gradient(124deg, #ff2400, #e81d1d, blue, #e3e81d, #1de840, #1ddde8, red, #dd00f3, #dd00f3);
+   background-size: 1800% 1800%;
+   animation: rainbow 18s ease infinite;
+   font-family: "Long Cang", cursive;
+}
+
+@keyframes rainbow {
+   0%{background-position:0% 82%}
+   50%{background-position:100% 19%}
+   100%{background-position:0% 82%}
+}
+
+h1 {
+    color: rgba(65, 59, 244, 0.265);
+    text-align: center;
+    font-family: "Protest Riot", sans-serif;
+    -webkit-text-stroke: .7px #ebebeb;
+	text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
+    margin-bottom: 30px;
+    margin-top: -5px;
+}
+
+.form-container {
+    background-color: rgb(233, 241, 241);
+    outline: 2px solid rgba(0,0,0,0.541);
+    margin: 2.5% auto;
+    padding: 4%;
+    box-shadow: 7px 7px rgba(0,0,0,0.58);
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
+input.weightInput {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgba(254,254,254,0.708);
+    border: 1px solid #ccc;
+    text-align: center;
+    font-family: "Anta", sans-serif;
+    width: 120px;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+button.plus, button.minus {
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+    height: 50px;
+    width: 50px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg, rgba(65, 59, 244, 0.265),#3c4fe0);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+button.plus.pressed {
+    background: #28a745; /* solid green */
+    color: #fff;
+    box-shadow: none; /* remove any shadow effect */
+}
+
+button.minus.pressed {
+    background: #dc3545; /* solid red */
+    color: #fff;
+    box-shadow: none;
+}
+
+
+button.plus:hover, button.minus:hover {
+    box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+
+.item-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#totalWeight {
+    margin-top: 30px;
+    font-family: "Anta", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(254, 254, 254, 0.8);
+}
+
+#addItem, #refreshBtn {
+    display: inline-block;
+    margin: 10px 5px;
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    -webkit-text-stroke: .7px #000000;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
+    font-size: 16px;
+    height: 50px;
+    width: 150px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg, rgba(65, 59, 244, 0.265),#3c4fe0);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+#backbutton {
+    display: inline-block;
+    margin: 10px 5px;
+    margin-top: 20px;
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    -webkit-text-stroke: .7px #000000;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
+    font-size: 16px;
+    height: 50px;
+    width: 250px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg, rgba(65, 59, 244, 0.265),#3c4fe0);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+#addItem:hover, #refreshBtn:hover {
+    box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+
+@media screen and (max-width: 768px){
+    .form-container { width: 90%; padding: 2%; }
+    button.plus, button.minus { width: 40px; height: 40px; font-size: 16px; }
+    input.weightInput { width: 100px; font-size: 14px; }
+    #addItem, #refreshBtn { width: 120px; font-size: 14px; }
+}
+
+/* Wrapper to position arrow */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 135px;
+}
+
+/* Styled select */
+#unitSelect {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    font-family: "Anta", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000; /* black text */
+    background-color: #fff; /* white background */
+    border: 1px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Arrow */
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #000; /* black arrow */
+}
+
+/* Hover & focus */
+#unitSelect:hover {
+    border-color: #666;
+}
+
+#unitSelect:focus {
+    border-color: #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px){
+    .select-wrapper {
+        width: 120px;
+    }
+    #unitSelect {
+        font-size: 14px;
+        padding: 8px 35px 8px 12px;
+    }
+}
+
+/* Default for desktop */
+#gold_logo {
+    width: 300px;
+    margin-left: -20px; /* keeps your original positioning */
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 767px) {
+    #gold_logo {
+        width: 100%;       /* full width */
+        max-width: 300px;  /* limit to 300px */
+        margin: 0 auto;    /* center the logo */
+        display: block;    /* ensure centering works */
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="form-container">
+
+<img id="gold_logo" src="/Images/gold_logo.png" alt="Loading...">
+<h1>Weight Calculator</h1>
+
+<div class="select-wrapper">
+    <select id="unitSelect">
+        <option value="bhori" selected>Bhori</option>
+        <option value="gram">Gram</option>
+    </select>
+</div>
+
+<div id="itemsContainer">
+    <div class="item-row">
+        <button class="plus">+</button>
+        <input type="tel" pattern="[0-9.]*" inputmode="decimal" class="weightInput" placeholder="0.0.0.0">
+        <button class="minus">-</button>
+    </div>
+</div>
+
+<button id="addItem">Add More Item</button>
+<button id="refreshBtn">Refresh</button>
+
+<p style="font-size: 26px;">Total Weight:</p>
+<div id="totalWeight">
+    Bhori: 0.0.0.0<br>
+    Gram: 0.0000
+</div>
+
+<button id="backbutton" onclick="window.location.href='/index.html'">
+        Wanna try Gold Calculator?
+</button>
+<br>
+<button id="backbutton" onclick="window.location.href='/silvercalculator.html'">
+        Wanna try Silver Calculator?
+</button>
+
+<br><br>
+<p>Who am I? <a target="_blank" href="https://info-apurbo.netlify.app/">Want's to know?</a></p>
+
+</div>
+
+<script>
+const BHORI_TO_GRAM = 11.664;
+const itemsContainer = document.getElementById('itemsContainer');
+const unitSelect = document.getElementById('unitSelect');
+const totalWeightDiv = document.getElementById('totalWeight');
+
+// Conversion functions
+function bhoriToPoints(str){
+    let [b,a,r,p] = str.split('.').map(n=>parseInt(n)||0);
+    return b*16*6*10 + a*6*10 + r*10 + p;
+}
+function pointsToBhori(points){
+    const negative = points < 0;
+    points = Math.abs(points); // work with positive for calculation
+    let b=Math.floor(points/(16*6*10)); points%=16*6*10;
+    let a=Math.floor(points/(6*10)); points%=6*10;
+    let r=Math.floor(points/10); let p=points%10;
+    return (negative ? '-' : '') + `${b}.${a}.${r}.${p}`;
+}
+
+function gramToPoints(g){ return g/BHORI_TO_GRAM*16*6*10; }
+function pointsToGram(p){ return p/(16*6*10)*BHORI_TO_GRAM; }
+
+// Update placeholders when switching units
+function updatePlaceholders(){
+    document.querySelectorAll('.weightInput').forEach(i=>{
+        i.placeholder = unitSelect.value==='bhori'?'0.0.0.0':'0.0000';
+    });
+    calculateTotal();
+}
+
+// Attach events to a row
+function attachRowEvents(row){
+    const plus=row.querySelector('.plus');
+    const minus=row.querySelector('.minus');
+    const input=row.querySelector('.weightInput');
+
+    plus.addEventListener('click', ()=>{
+        plus.classList.add('pressed'); 
+        minus.classList.remove('pressed');
+        if(input.value==='') input.value = unitSelect.value==='bhori'?'0.0.0.0':'0.00';
+        calculateTotal();
+    });
+
+    minus.addEventListener('click', ()=>{
+        minus.classList.add('pressed'); 
+        plus.classList.remove('pressed');
+        if(input.value==='') input.value = unitSelect.value==='bhori'?'0.0.0.0':'0.00';
+        calculateTotal();
+    });
+
+    input.addEventListener('focus', ()=>input.value='');
+    input.addEventListener('input', calculateTotal);
+}
+
+// Initialize existing rows
+document.querySelectorAll('.item-row').forEach(attachRowEvents);
+
+// Add new item dynamically without resetting previous rows
+document.getElementById('addItem').addEventListener('click', ()=>{
+    const row=document.createElement('div');
+    row.className='item-row';
+    row.innerHTML='<button class="plus">+</button><input type="text" class="weightInput"><button class="minus">-</button>';
+    itemsContainer.appendChild(row);
+    const input=row.querySelector('.weightInput');
+    input.placeholder = unitSelect.value==='bhori'?'0.0.0.0':'0.00';
+    attachRowEvents(row); // attach events only to new row
+});
+
+// Refresh button
+document.getElementById('refreshBtn').addEventListener('click', ()=>location.reload());
+
+// Unit change
+unitSelect.addEventListener('change', updatePlaceholders);
+
+// Calculate total weight
+function calculateTotal(){
+    let total=0;
+    document.querySelectorAll('.item-row').forEach(row=>{
+        const input=row.querySelector('.weightInput');
+        const plus=row.querySelector('.plus');
+        const minus=row.querySelector('.minus');
+        let val=input.value.trim() || (unitSelect.value==='bhori'?'0.0.0.0':'0');
+        let points = unitSelect.value==='bhori'?bhoriToPoints(val):gramToPoints(parseFloat(val)||0);
+        if(plus.classList.contains('pressed')) total+=points;
+        if(minus.classList.contains('pressed')) total-=points;
+    });
+    // allow negative totals
+    totalWeightDiv.innerHTML=`Bhori: ${pointsToBhori(Math.round(total))}<br>Gram: ${pointsToGram(total).toFixed(4)}`;
+}
+
+// Initial calculation
+calculateTotal();
+</script>
+</body>
+</html>
