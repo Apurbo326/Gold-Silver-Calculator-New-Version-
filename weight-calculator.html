@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold-Calculator-APURBO_KARMOKAR</title>
+<title>Weight-Calculator-APURBO_KARMOKAR</title>
 <link rel="icon" href="Images/Gold.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap">
@@ -21,6 +21,26 @@ body {
    0%{background-position:0% 82%}
    50%{background-position:100% 19%}
    100%{background-position:0% 82%}
+}
+
+/* Mobile optimization */
+@media only screen and (max-width: 767px) {
+    body {
+        background-size: 1200% 1200%;
+        animation: rainbow 10s ease infinite;
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 h1 {
@@ -103,7 +123,7 @@ button.plus:hover, button.minus:hover {
 #totalWeight {
     margin-top: 30px;
     font-family: "Anta", sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
@@ -118,7 +138,7 @@ button.plus:hover, button.minus:hover {
     color: #ffffff;
     -webkit-text-stroke: .7px #000000;
     text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
-    font-size: 16px;
+    font-size: 17px;
     height: 50px;
     width: 150px;
     border-radius: 50px;
@@ -139,7 +159,7 @@ button.plus:hover, button.minus:hover {
     color: #ffffff;
     -webkit-text-stroke: .7px #000000;
     text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.683);
-    font-size: 16px;
+    font-size: 18px;
     height: 50px;
     width: 250px;
     border-radius: 50px;
@@ -344,7 +364,7 @@ document.querySelectorAll('.item-row').forEach(attachRowEvents);
 document.getElementById('addItem').addEventListener('click', ()=>{
     const row=document.createElement('div');
     row.className='item-row';
-    row.innerHTML='<button class="plus">+</button><input type="text" class="weightInput"><button class="minus">-</button>';
+    row.innerHTML='<button class="plus">+</button><input type="tel" pattern="[0-9.]*" inputmode="decimal" class="weightInput"> <button class="minus">-</button>';
     itemsContainer.appendChild(row);
     const input=row.querySelector('.weightInput');
     input.placeholder = unitSelect.value==='bhori'?'0.0.0.0':'0.00';
